@@ -25,6 +25,7 @@ class ApplicationContextinfoTest { // Junit5 부터는 public 설정 안해두�
     void finApplicationBean(){
         String[] beanDefinitionNames = ac.getBeanDefinitionNames();
         for (String beanDefinitionName : beanDefinitionNames) {
+            // 빈에 대한 메타데이터의 정보들
             BeanDefinition beanDefinition = ac.getBeanDefinition(beanDefinitionName);
 
             //Role ROLE_APPLICATION : 직접 등록한 애플리케이션 빈
