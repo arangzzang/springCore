@@ -1,19 +1,18 @@
 package hello.core.member;
 
-import hello.core.AppConfig;
+//import hello.core.AppConfig;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class MemberServiceTest {
 
     MemberService memberService;
     @BeforeEach // 테스트실행전 무조건 실행되는 빈
     public void beforeEach(){
-        AppConfig appConfig = new AppConfig();
-        memberService = appConfig.memberService();
+//        AppConfig appConfig = new AppConfig();
+//        memberService = appConfig.memberService();
     }
 
     @Test
