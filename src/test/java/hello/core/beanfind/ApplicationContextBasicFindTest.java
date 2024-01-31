@@ -3,16 +3,13 @@ package hello.core.beanfind;
 import hello.core.AppConfig;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ApplicationContextBasicFindTest {
     AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
@@ -31,8 +28,8 @@ public class ApplicationContextBasicFindTest {
     }
     @Test
     @DisplayName("구체 타입으로 조회")
-    void findBeanByName2(){ // 구체 타입으로 조회 시 유연성이 떨어짐.
-        MemberServiceImpl memberService = ac.getBean("memberServiceImpl", MemberServiceImpl.class);
+    void findBeanByName2() {
+        MemberServiceImpl memberService = ac.getBean("memberService", MemberServiceImpl.class);
         assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
     }
 

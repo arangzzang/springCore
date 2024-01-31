@@ -1,5 +1,6 @@
 package hello.core.order;
 
+import hello.core.AppConfig;
 import hello.core.member.Grade;
 import hello.core.member.Member;
 import hello.core.member.MemberService;
@@ -16,14 +17,14 @@ public class OrderServiceTest {
     @BeforeEach // 테스트실행전 무조건 실행되는 빈
     public void beforeEach(){
         ApplicationContext ac = new AnnotationConfigApplicationContext(hello.core.AppConfig.class);
-//        AppConfig appConfig = new AppConfig();
-//        memberService = appConfig.memberService();
-//        orderService = appConfig.orderService();
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+        orderService = appConfig.orderService();
     }
     @Test
     void createOrder(){
         Long memberId = 1L;
-        Member member = new Member(memberId,"memberA", Grade.VPI);
+        Member member = new Member(memberId,"memberA", Grade.VIP);
         memberService.join(member);
 
         Order order = orderService.createOrder(memberId,  "itemA", 10000);
