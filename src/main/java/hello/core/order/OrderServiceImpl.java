@@ -17,14 +17,14 @@ public class OrderServiceImpl implements OrderService{
      * 한번에 여러 필드를 주입 받을 수 있다.
      * 일반적으로 잘 사용하지 않는다.
      * */
-    private MemberRepository memberRepository;
-    private DiscountPolicy discountPolicy;
-
-    @Autowired
-    public void init (MemberRepository memberRepository, DiscountPolicy discountPolicy){
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+//    private MemberRepository memberRepository;
+//    private DiscountPolicy discountPolicy;
+//
+//    @Autowired
+//    public void init (MemberRepository memberRepository, DiscountPolicy discountPolicy){
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
 
     /**
      * 필드 주입 특징 :
@@ -42,14 +42,14 @@ public class OrderServiceImpl implements OrderService{
      * 생성자 호출시점에 딱 1번만 호출되는 것이 보장된다.
      * 불변, 필수 의존관계에 사용
      * */
-    /*private final MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
-    }*/
+    }
 
     /**
      * 생성자 주입 특징 :
