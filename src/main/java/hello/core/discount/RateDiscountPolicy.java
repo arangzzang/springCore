@@ -1,10 +1,14 @@
 package hello.core.discount;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.member.Grade;
 import hello.core.member.Member;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
+@MainDiscountPolicy // 커스텀한 퀄리파이어
+//@Primary // 우선순위권 최상위로 의존주입함. 하지만 상세한걸 스프링은 권고하기에 Qualifier가 우선순위가 더 먼저임
 public class RateDiscountPolicy implements DiscountPolicy{
 
     private int discountPercent = 10;
