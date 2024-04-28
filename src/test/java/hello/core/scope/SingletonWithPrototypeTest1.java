@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Scope;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class SingletonWithPrototypeTest {
+public class SingletonWithPrototypeTest1 {
 
     public void ClientBean(ApplicationContext applicationContext) {
 
