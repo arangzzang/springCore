@@ -2,7 +2,6 @@ package hello.core.scope;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import jakarta.inject.Provider;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.ObjectProvider;
@@ -11,12 +10,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Scope;
 
-//import javax.inject.Provider;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class SingletonWithPrototypeTest1 {
+public class SingletonWithPrototypeTest {
 
     public void ClientBean(ApplicationContext applicationContext) {
 
@@ -65,8 +62,8 @@ public class SingletonWithPrototypeTest1 {
          * 지금 필요한 기능은 지정한 프로토타입 빈을 컨테이너에서 대신 찾아주는 딱! ** DL **  정도의 기능만 제공하는 무언가가 있으면 된다.
          * */
         @Autowired
-        private Provider<PrototypeBean> provider;
-//        private ObjectProvider<PrototypeBean> prototypeBeanProvider;
+//        private Provider<PrototypeBean> provider;
+        private ObjectProvider<PrototypeBean> prototypeBeanProvider;
 
 //        @Autowired
 //        public ClientBean(PrototypeBean prototypeBean, ApplicationContext applicationContext) {
@@ -76,8 +73,8 @@ public class SingletonWithPrototypeTest1 {
 //        }
 
         public int logic() {
-//            PrototypeBean prototypeBean = prototypeBeanProvider.getObject();
-            PrototypeBean prototypeBean = provider.get();
+            PrototypeBean prototypeBean = prototypeBeanProvider.getObject();
+//            PrototypeBean prototypeBean = provider.get();
             prototypeBean.addCount();
             int count = prototypeBean.getCount();
             return count;
